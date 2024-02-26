@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+}
+
+@layer components {
+  .paging {
+    @apply mx-auto w-screen px-5;
+  }
+}
+
+@layer utilities {
+}

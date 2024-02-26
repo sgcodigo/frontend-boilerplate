@@ -1,0 +1,13 @@
+{
+  "name": "@repo/utils",
+  "version": "0.0.1",
+  "dependencies": {
+    "@repo/states": "*",
+    "axios": "^1.6.7",
+    "qs": "^6.11.2",
+    "recoil": "^0.7.7"
+  },
+  "devDependencies": {
+    "@types/qs": "^6"
+  }
+}

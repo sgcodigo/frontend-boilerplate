@@ -1,0 +1,147 @@
+@import './keyframes.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --animate-x: 0;
+    --animate-y: 0.5rem;
+    --animate-scale-x: 1;
+    --animate-scale-y: 1;
+    --animate-opacity: 0;
+    --animate-delay: 0s;
+    --animate-easing: theme('transitionTimingFunction.in');
+    --animate-duration: 0.35s;
+  }
+
+  * {
+    @apply outline-none focus:outline-none;
+  }
+
+  html {
+    @apply !scroll-smooth;
+  }
+
+  body {
+    @apply relative !m-0 h-screen; /* !m-0 is for radix-ui select */
+  }
+
+  main {
+    @apply pt-[--banner-height]; /* For the contents to adjust with banner */
+  }
+
+  input {
+    @apply bg-transparent;
+  }
+}
+
+@layer components {
+  .paging {
+    @apply mx-auto w-screen px-5;
+  }
+
+  .react-select {
+    &__control {
+      @apply !h-full !rounded-none !border-none px-4;
+    }
+    &__menu {
+      @apply !m-0 !rounded-none !ring-1;
+    }
+    &__menu-list {
+      @apply h-48;
+    }
+    &__option {
+      @apply !cursor-pointer !bg-transparent;
+      &--is-selected {
+      }
+    }
+    &__indicator-separator {
+      @apply !hidden;
+    }
+    &__value-container {
+      @apply !px-0;
+    }
+    &__indicators {
+      @apply duration-150;
+    }
+    &__control--menu-is-open .react-select__indicators {
+      @apply rotate-180;
+    }
+  }
+
+  .react-datepicker {
+    &-wrapper {
+      @apply w-full;
+    }
+    &__input-container {
+      @apply h-full;
+      input {
+        @apply s-full px-4;
+      }
+    }
+    &-popper {
+      @apply z-10 mt-[0.3125rem] w-full bg-white p-5 text-xs;
+    }
+
+    &__day-names {
+      @apply mt-6 flex text-center font-semibold [&>div]:flex-1;
+    }
+    &__week {
+      @apply mt-2 flex text-center text-xs;
+    }
+
+    &__day-names {
+      @apply mb-4 font-medium;
+    }
+
+    &__day-names,
+    &__week {
+      @apply grid grid-cols-7 gap-x-2;
+    }
+    &__month {
+      @apply space-y-2;
+    }
+    &__month-wrapper {
+      @apply grid grid-cols-3 gap-2;
+    }
+    &__year-wrapper {
+      @apply grid grid-cols-4 gap-2;
+    }
+
+    &__day p,
+    &__month-text,
+    &__year-text {
+      @apply flex-center flex h-8 cursor-pointer rounded-md border-none duration-200;
+    }
+    &__day p {
+      @apply mx-auto w-8 rounded-full;
+    }
+
+    &__day,
+    &__month-text,
+    &__year-text {
+      &--disabled,
+      &--outside-month {
+        @apply pointer-events-none bg-transparent hover:bg-transparent;
+      }
+    }
+
+    &__day--selected p,
+    &__month-text--selected,
+    &__year-text--selected {
+    }
+
+    &__day--today p,
+    &__month-text--today,
+    &__year-text--today {
+    }
+
+    &__aria-live {
+      @apply sr-only;
+    }
+  }
+}
+
+@layer utilities {
+}

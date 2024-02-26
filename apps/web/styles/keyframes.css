@@ -1,0 +1,30 @@
+@keyframes enter {
+  0% {
+    opacity: var(--animate-opacity);
+    transform: scale(var(--animate-scale-x), var(--animate-scale-y)) translate(var(--animate-x), var(--animate-y));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(var(--tw-scale-x), var(--tw-scale-y)) translate(var(--tw-translate-x), var(--tw-translate-y));
+  }
+}
+
+@keyframes leave {
+  0% {
+    opacity: var(--animate-opacity);
+    transform: scale(var(--tw-scale-x), var(--tw-scale-y)) translate(var(--tw-translate-x), var(--tw-translate-y));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(var(--animate-scale-x), var(--animate-scale-y)) translate(var(--animate-x), var(--animate-y));
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
