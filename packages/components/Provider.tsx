@@ -19,7 +19,8 @@ const queryClient = new QueryClient({
 
 export default function Provider({ children, className, fontVariables, ...rest }: Props) {
   return (
-    <div {...rest} className={`font-sans ${fontVariables.sans} ${fontVariables.serif} ${className}`}>
+    // Note: `h-screen` is important for `position: sticky` elements.
+    <div {...rest} className={`font-sans h-screen ${fontVariables.sans} ${fontVariables.serif} ${className}`}>
       <RecoilRoot>
         <RecoilStatePortal />
         <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
