@@ -24,7 +24,7 @@
   }
 
   body {
-    @apply relative !m-0 h-screen; /* !m-0 is for radix-ui select */
+    @apply relative !m-0; /* !m-0 is for radix-ui select */
   }
 
   main {
