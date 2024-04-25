@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const { seedsToCSSVars, getMapToken } = require('./tailwind')
 
 const childs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
@@ -17,7 +18,6 @@ module.exports = {
   ],
   theme: {
     colors: {
-      primary: '',
       white: '#ffffff',
       black: '#000000',
       inherit: 'inherit',
@@ -25,16 +25,22 @@ module.exports = {
       transparent: 'transparent',
     },
     zIndex: zIndexes.reduce((z, n) => ({ ...z, [n * 5]: n * 5 }), {}),
-    boxShadow: {
-      none: 'none',
-      DEFAULT: '',
-    },
-    fontFamily: {
-      sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+    padding: getMapToken('Padding'),
+    borderRadius: getMapToken('Border_Radius'),
+    backgroundColor: getMapToken('Background'),
+    boxShadow: { none: 'none', DEFAULT: '' },
+    fontFamily: { sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans] },
+
+    extend: {
+      textColor: getMapToken('Text'),
     },
   },
   plugins: [
-    ({ theme, addVariant, addUtilities, matchUtilities }) => {
+    ({ theme, addBase, addVariant, addUtilities, matchUtilities }) => {
+      /* Seed Vars */
+      addBase({ ':root': seedsToCSSVars('Size') })
+      addBase({ ':root': seedsToCSSVars('Color') })
+
       /* Variants */
       childs.forEach(child => {
         const variant = `${child}${child === 1 ? 'st' : child === 2 ? 'nd' : child === 3 ? 'rd' : 'th'}`

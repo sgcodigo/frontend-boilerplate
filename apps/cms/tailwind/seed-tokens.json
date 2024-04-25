@@ -1,0 +1,80 @@
+{
+  "Color": {
+    "Blue": {
+      "4": {
+        "$type": "color",
+        "$value": "#69b1ff"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#4096ff"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "#1677ff"
+      }
+    },
+    "Red": {
+      "2": {
+        "$type": "color",
+        "$value": "#ffccc7"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "#ffa39e"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "#ff7875"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#ff4d4f"
+      }
+    },
+    "Netural": {
+      "1": {
+        "$type": "color",
+        "$value": "#ffffff"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "#d9d9d9"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "#595959"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "#1f1f1f"
+      }
+    }
+  },
+  "Size": {
+    "1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "24px"
+    }
+  }
+}

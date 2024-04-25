@@ -8,9 +8,9 @@ type CProps = VariantProps<typeof classes> & { $ref?: any; icon?: ReactNode; lab
 export type LinkProps = CProps & $LinkProps & HTMLAttributes<HTMLAnchorElement>
 export type ButtonProps = CProps & { href?: undefined } & ButtonHTMLAttributes<HTMLButtonElement>
 
-const classes = cva('relative flex-center leading-none', {
+const classes = cva('relative flex-center leading-normal text-white rounded-xxs', {
   variants: {
-    size: { sm: '', md: '' },
+    size: { md: 'px-base py-xxs', lg: 'px-5 py-2' },
     width: {
       fill: 'flex w-full',
       inline: 'inline-flex flex-shrink-0',
@@ -18,20 +18,26 @@ const classes = cva('relative flex-center leading-none', {
     },
     state: {
       idle: 'cursor-pointer',
-      error: 'cursor-not-allowed',
       loading: 'cursor-progress',
       disable: 'cursor-not-allowed',
-      success: '',
     },
     color: {
+      danger: '',
       primary: '',
     },
     variant: {
-      text: '',
-      contain: '',
-      outline: '',
+      link: '',
+      dashed: '',
+      primary: '',
+      secondary: 'bg-container',
     },
   },
+  compoundVariants: [
+    { color: 'primary', variant: 'primary', class: 'bg-primary hover:bg-primary-hover' },
+    { color: 'danger', variant: 'primary', class: 'bg-error hover:bg-error-hover' },
+    { color: 'primary', variant: 'secondary', class: 'hover:border-primary-hover' },
+    { color: 'danger', variant: 'secondary', class: 'border-error hover:border-error-hover' },
+  ],
 })
 
 export default function Button({
@@ -42,8 +48,8 @@ export default function Button({
   color = 'primary',
   state = 'idle',
   label,
-  width = 'fill',
-  variant = 'contain',
+  width = 'inline',
+  variant = 'primary',
   children,
   className,
 

@@ -1,0 +1,104 @@
+{
+  "Background": {
+    "primary": {
+      "$type": "color",
+      "$value": "{Color.Blue.6}"
+    },
+    "primaryHover": {
+      "$type": "color",
+      "$value": "{Color.Blue.5}"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{Color.Red.5}"
+    },
+    "errorHover": {
+      "$type": "color",
+      "$value": "{Color.Red.4}"
+    },
+    "container": {
+      "$type": "color",
+      "$value": "{Color.Netural.1}"
+    }
+  },
+  "Padding": {
+    "xxs": {
+      "$type": "dimension",
+      "$value": "{Size.1}"
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": "{Size.2}"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "{Size.3}"
+    },
+    "base": {
+      "$type": "dimension",
+      "$value": "{Size.4}"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "{Size.5}"
+    }
+  },
+  "Text": {
+    "default": {
+      "$type": "color",
+      "$value": "{Color.Netural.11}"
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{Color.Netural.8}"
+    },
+    "defaultInvert": {
+      "$type": "color",
+      "$value": "{Color.Netural.1}"
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "{Color.Blue.6}"
+    },
+    "primaryHover": {
+      "$type": "color",
+      "$value": "{Color.Blue.5}"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{Color.Red.5}"
+    },
+    "errorHover": {
+      "$type": "color",
+      "$value": "{Color.Red.4}"
+    }
+  },
+  "Border_Radius": {
+    "xxs": {
+      "$type": "dimension",
+      "$value": "{Size.1}"
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": "{Size.2}"
+    }
+  },
+  "Border": {
+    "default": {
+      "$type": "color",
+      "$value": "{Color.Netural.5}"
+    },
+    "primaryHover": {
+      "$type": "color",
+      "$value": "{Color.Blue.4}"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{Color.Red.5}"
+    },
+    "errorHover": {
+      "$type": "color",
+      "$value": "{Color.Red.3}"
+    }
+  }
+}
