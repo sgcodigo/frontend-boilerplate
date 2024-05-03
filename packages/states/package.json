@@ -1,5 +1,5 @@
 {
-  "name": "@repo/states",
+  "name": "@pkg/states",
   "version": "0.0.1",
   "dependencies": {
     "recoil": "^0.7.7",

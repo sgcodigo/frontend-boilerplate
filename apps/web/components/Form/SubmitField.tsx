@@ -1,4 +1,4 @@
-import type { FieldProps } from '@repo/components/Field'
+import type { FieldProps } from '@web/components/Form/Field'
 import { ComponentProps, createElement, FunctionComponent, JSXElementConstructor } from 'react'
 import Submit, { SubmitProps } from './Submit'
 

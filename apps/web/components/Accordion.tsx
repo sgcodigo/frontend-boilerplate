@@ -1,5 +1,5 @@
+import HTML from '@pkg/components/HTML'
 import * as $Accordion from '@radix-ui/react-accordion'
-import HTML from '@repo/components/HTML'
 import { cva, VariantProps } from 'class-variance-authority'
 import { PlusIcon } from 'icons/Math'
 import { ReactNode } from 'react'

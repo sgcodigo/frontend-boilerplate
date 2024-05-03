@@ -1,5 +1,5 @@
-import { tokenState } from '@repo/states'
-import request, { Request, Response, ResponseError } from '@repo/utils/request'
+import { tokenState } from '@pkg/states'
+import request, { Request, Response, ResponseError } from '@pkg/utils/request'
 import { UseMutationOptions, UseQueryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useCallback } from 'react'
 import { useRecoilState } from 'recoil'

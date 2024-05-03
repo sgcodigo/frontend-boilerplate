@@ -1,4 +1,4 @@
-import Field, { FieldProps } from '@repo/components/Field'
+import Field, { FieldProps } from '@web/components/Form/Field'
 import { HTMLInputTypeAttribute } from 'react'
 
 type Props = Omit<FieldProps, 'children'> & { type?: HTMLInputTypeAttribute }

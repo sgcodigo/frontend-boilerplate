@@ -1,8 +1,8 @@
+import RecoilStatePortal from '@pkg/utils/recoil-portal'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import NextProgress from 'nextjs-progressbar'
 import { HTMLProps } from 'react'
 import { RecoilRoot } from 'recoil'
-import RecoilStatePortal from '@repo/utils/recoil-portal'
 
 type Props = HTMLProps<HTMLDivElement> & {
   fontVariables: { sans: string; serif?: string }

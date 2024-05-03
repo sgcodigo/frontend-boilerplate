@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useMutate } from '@repo/hooks/useQuery'
-import type { Request, Response, ResponseError } from '@repo/utils/request'
+import { useMutate } from '@pkg/hooks/useQuery'
+import type { Request, Response, ResponseError } from '@pkg/utils/request'
 import { HTMLAttributes, ReactNode, createElement, useEffect } from 'react'
 import { DefaultValues, FieldValues, FormProvider, Path, UseFormReset, UseFormReturn, UseFormSetValue, useForm } from 'react-hook-form'
 import { Schema } from 'yup'

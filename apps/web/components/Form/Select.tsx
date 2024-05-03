@@ -1,5 +1,5 @@
-import Field, { FieldProps } from '@repo/components/Field'
-import { cookOptions } from '@repo/utils'
+import { cookOptions } from '@pkg/utils'
+import Field, { FieldProps } from '@web/components/Form/Field'
 import { useId } from 'react'
 import ReactSelect, { GroupBase, Props as ReactSelectProps, StylesConfig } from 'react-select'
 

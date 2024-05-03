@@ -1,6 +1,6 @@
+import { cookOptions } from '@pkg/utils'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import Field from '@repo/components/Field'
-import { cookOptions } from '@repo/utils'
+import Field from '@web/components/Form/Field'
 import { VariantProps, cva } from 'class-variance-authority'
 
 type Props = VariantProps<typeof radio> & { col?: boolean; name: string; options: Option[] }

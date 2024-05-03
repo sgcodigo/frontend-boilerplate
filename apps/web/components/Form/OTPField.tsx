@@ -1,6 +1,6 @@
 import { useInterval } from '@mantine/hooks'
-import Field from '@repo/components/Field'
-import { useMutate } from '@repo/hooks/useQuery'
+import { useMutate } from '@pkg/hooks/useQuery'
+import Field from '@web/components/Form/Field'
 import { useEffect, useRef, useState } from 'react'
 
 type Props = {
