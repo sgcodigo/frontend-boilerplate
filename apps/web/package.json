@@ -11,7 +11,6 @@
   "dependencies": {
     "@dotlottie/player-component": "^2.7.10",
     "@mantine/hooks": "^7.5.3",
-    "@marsidev/react-turnstile": "^0.5.3",
     "@pkg/components": "*",
     "@pkg/hooks": "*",
     "@pkg/states": "*",

@@ -41,6 +41,56 @@ We use **AWS Amplify** over traditional **EC2** for cost and performance advanta
 - For Web, the `sitemap.xml` & `robots.txt` will be automatically added for all pages using [`next-sitemap`](https://www.npmjs.com/package/next-sitemap). The `robots.txt` automatically disable all pages from ranking in SEO for staging environment.
 - For CMS, there is no need for `sitemap.xml` and `robots.txt` already disable all pages from ranking in SEO.
 
+## Import Alias
+
+### `@pkg`
+
+All packages inside `/packages/*` must be imported using `@pkg` alias.
+
+```jsx
+/* apps/web/pages/index.tsx */
+
+// Don't ❌
+import Image from '../../../packages/components/Image'
+import useQuery from '../../../packages/hooks/useQuery'
+
+// Do this ✅
+import Image from '@pkg/components/Image'
+import useQuery from '@pkg/hooks/useQuery'
+```
+
+### `@web`
+
+All files inside `/apps/web` must be imported using `@web` alias.
+
+```jsx
+/* apps/web/pages/index.tsx */
+
+// Don't ❌
+import Button from '../components/Button'
+import useProfile from '../hooks/useProfile'
+
+// Do this ✅
+import Button from '@web/components/Button'
+import useProfile from '@web/hooks/useProfile'
+```
+
+### `@cms`
+
+All files inside `/apps/cms` must be imported using `@cms` alias.
+
+```jsx
+/* apps/cms/pages/index.tsx */
+
+// Don't ❌
+import Button from '../components/Button'
+import useProfile from '../hooks/useProfile'
+
+// Do this ✅
+import Button from '@cms/components/Button'
+import useProfile from '@cms/hooks/useProfile'
+```
+
 ## Communication
 
 ### With Design Team

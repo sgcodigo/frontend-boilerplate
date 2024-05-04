@@ -20,7 +20,7 @@
 
 ### Location
 
-All the hooks must be only inside `/apps/web/hooks`. If the hook seems to be useful in both Web and CMS, please move to `packages/hooks`. It's better to have only single hook per file. Don't create hooks inside the `views/$module` even if it's only related to a specific module.
+All the hooks must be only inside `apps/web/hooks`. If the hook seems to be useful in both Web and CMS, please move to `packages/hooks`. It's better to have only single hook per file. Don't create hooks inside the `views/$module` even if it's only related to a specific module.
 
 ## State Management
 
@@ -58,11 +58,11 @@ Unlike components and hooks, utils must be always declared inside `packages/util
 
 ## Friendly Notes
 
-- Every pages should be wrapped with `components/Page`.
+- Every pages should be wrapped with `@web/components/Page`.
 
   ```jsx
   // pages/*.tsx
-  import { Page } from 'components/Page'
+  import { Page } from '@web/components/Page'
 
   export default function Index() {
     return <Page></Page>

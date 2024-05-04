@@ -662,6 +662,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@marsidev/react-turnstile@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@marsidev/react-turnstile@npm:0.6.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 10c0/02a206471a11432e19ecd6ddebf41b65df201082491a1f7e454e365c5cfb51a95ceaa95edf562f488dc645076b2c1d2517cb3f9cf904e6ede779035a5cfdd7ee
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:14.1.0":
   version: 14.1.0
   resolution: "@next/env@npm:14.1.0"
@@ -802,6 +812,7 @@ __metadata:
   resolution: "@pkg/components@workspace:packages/components"
   dependencies:
     "@hookform/resolvers": "npm:^3.3.4"
+    "@marsidev/react-turnstile": "npm:^0.6.0"
     "@pkg/hooks": "npm:*"
     "@pkg/typescript-config": "npm:*"
     "@pkg/utils": "npm:*"
@@ -6570,7 +6581,6 @@ __metadata:
   dependencies:
     "@dotlottie/player-component": "npm:^2.7.10"
     "@mantine/hooks": "npm:^7.5.3"
-    "@marsidev/react-turnstile": "npm:^0.5.3"
     "@next/eslint-plugin-next": "npm:^14.0.4"
     "@pkg/components": "npm:*"
     "@pkg/eslint-config": "npm:*"

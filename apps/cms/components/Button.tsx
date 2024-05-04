@@ -25,6 +25,7 @@ const classes = cva('relative flex-center leading-none', {
     },
     color: {
       primary: '',
+      secondary: '',
     },
     variant: {
       text: '',

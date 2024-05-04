@@ -3,6 +3,9 @@
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "next.config.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "compilerOptions": {
+    "paths": {
+      "@cms/*": ["./*"]
+    },
     "baseUrl": ".",
     "plugins": [{ "name": "next" }]
   }

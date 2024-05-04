@@ -3,6 +3,8 @@
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "module": "Preserve",
+    "moduleResolution": "Bundler"
   }
 }
