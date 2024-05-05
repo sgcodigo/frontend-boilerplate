@@ -2,7 +2,7 @@
 
 ### Libraries
 
-[`radix-ui`](https://www.radix-ui.com/), [`react-select`](https://react-select.com/), [`react-datepicker`](https://reactdatepicker.com/), [`react-fast-marquee`](https://www.react-fast-marquee.com/), [`react-flagkit`](https://www.npmjs.com/package/react-flagkit), [`swiper`](https://swiperjs.com/).
+[`radix-ui`](https://www.radix-ui.com/), [`react-select`](https://react-select.com/), [`react-datepicker`](https://reactdatepicker.com/), [`react-fast-marquee`](https://www.react-fast-marquee.com/), [`react-flagkit`](https://www.npmjs.com/package/react-flagkit), [`swiper`](https://swiperjs.com/), [`renex`](https://www.npmjs.com/package/renex).
 
 ### Location
 
@@ -11,6 +11,27 @@
 - **Single instance components**(components that will be called once for entire website) like `Header` & `Footer` must be inside `apps/web/layouts`.
 
 - **Module base components**(components that are part of a module) like `HeroSection` in Home or `PricingCard` in Pricing must be declared inside `apps/web/$module`.
+
+## Styling
+
+We use utilities styling over componenets styling for smaller bundle size.
+
+### Libraries
+
+[`tailwindcss@v3.4`](https://tailwindcss.com/), [`tailwindcss-radix`](https://www.npmjs.com/package/tailwindcss-radix)
+
+### Location
+
+All the styles must be delcared inside `/apps/web/styles/index.css`. For keyframes, please delcare inside `/app/web/styles/keyframes.css`.
+
+### Libraries
+
+[`typescript@5.3`](https://www.typescriptlang.org/), [`ts-reset`](@total-typescript/ts-reset)
+
+### Location
+
+- Business related types must be delcared inside `apps/web/types/$module.ts`.
+- Global declaration (e.g declaring a module or a globally used types) must be declared inside `apps/web/types/global.d.ts`. Don't declare business related types as global.
 
 ## Hooks
 
@@ -41,6 +62,12 @@ All the states should be declared only inside `apps/web/states`. If the states s
 ### Location
 
 Unlike components and hooks, utils must be always declared inside `packages/utils/*` for both Web and CMS. Always group your utils, e.g, all date related utils must be delcared inside `packages/utils/date.ts`. If you can't find a common group name for utils, please put inside `packages/utils/index.ts`. Store project related constants on `packages/utils/consts/`.
+
+## Typescript
+
+## Fonts
+
+Please load fonts only with `next/font`. Please override the font declaration in `_app.tsx` with your respective fonts. When needed to load a custom font with `next/font`, please declare the font files inside `public/fonts`. If the font is a variable font, always pick for the variable font file instead of weight based font-file.
 
 ## Serious Notes
 
