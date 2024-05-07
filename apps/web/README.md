@@ -24,7 +24,11 @@ We use utilities styling over componenets styling for smaller bundle size.
 
 All the styles must be delcared inside `/apps/web/styles/index.css`. For keyframes, please delcare inside `/app/web/styles/keyframes.css`.
 
+## Types
+
 ### Libraries
+
+Your type name should be always like this `T$name`. E.g `TUser`, `TPricing`.
 
 [`typescript@5.3`](https://www.typescriptlang.org/), [`ts-reset`](@total-typescript/ts-reset)
 

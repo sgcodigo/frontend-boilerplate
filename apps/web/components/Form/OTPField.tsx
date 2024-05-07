@@ -57,7 +57,7 @@ export default function OTPField({ name = 'otp', user, autoSubmit }: Props) {
 const RequestCode = (user: Props['user']) => {
   const interval = useInterval(() => setSecond(s => s - 1), 1000)
   const [second, setSecond] = useState(30)
-  const { mutate, isLoading } = useMutate<string>({ onSettled: () => setSecond(30) })
+  const { mutate, isPending } = useMutate<string>({ onSettled: () => setSecond(30) })
 
   const isZeroSecond = second === 0
 
@@ -70,8 +70,8 @@ const RequestCode = (user: Props['user']) => {
       {isZeroSecond ? (
         <button
           type='button'
-          className={`${isLoading && 'cursor-progress'}`}
-          onClick={() => !isLoading && mutate({ url: '/onboarding/request-sms-otp', payload: { ...user, isEmail: !!user?.email } })}
+          className={`${isPending && 'cursor-progress'}`}
+          onClick={() => !isPending && mutate({ url: '/onboarding/request-sms-otp', payload: { ...user, isEmail: !!user?.email } })}
         >
           Resend code
         </button>

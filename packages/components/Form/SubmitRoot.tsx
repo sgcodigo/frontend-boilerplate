@@ -33,7 +33,7 @@ function ReCaptcha() {
   )
 }
 
-export default function Submit<T extends TButton>({ state, button, portalId, isTurnstile, onClick, ...props }: Props<T>) {
+export default function SubmitRoot<T extends TButton>({ state, button, portalId, isTurnstile, onClick, ...props }: Props<T>) {
   const ref = useRef<HTMLElement>(null)
   const { value } = useField('token')
   const { isValid, isSubmitting } = useFormState()
@@ -68,4 +68,4 @@ export default function Submit<T extends TButton>({ state, button, portalId, isT
   return portalId ? <Portal root={`#${portalId}`}>{$button}</Portal> : $button
 }
 
-export type { Props as SubmitProps }
+export type { Props as SubmitRootProps }
