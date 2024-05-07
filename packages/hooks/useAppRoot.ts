@@ -1,4 +1,4 @@
-import { isClientSideState, tokenState } from '@repo/states'
+import { isClientSideState, tokenState } from '@pkg/states'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'

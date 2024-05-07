@@ -1,4 +1,4 @@
-import { Banner, Popup, bannersState, popupsState } from '@repo/states/layout'
+import { Banner, Popup, bannersState, popupsState } from '@pkg/states/layout'
 import { customAlphabet } from 'nanoid'
 import { setRecoil } from './recoil-portal'
 

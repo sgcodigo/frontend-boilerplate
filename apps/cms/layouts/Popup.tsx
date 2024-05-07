@@ -1,5 +1,5 @@
-import { popupsState } from '@repo/states/layout'
-import { hidePopup } from '@repo/utils/layout'
+import { popupsState } from '@pkg/states/layout'
+import { hidePopup } from '@pkg/utils/layout'
 import { useRecoilValue } from 'recoil'
 
 export default function Popup() {

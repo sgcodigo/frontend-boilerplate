@@ -1,4 +1,4 @@
-import { screens } from '@repo/utils/const'
+import { screens } from '@pkg/utils/consts'
 import { cva, VariantProps } from 'class-variance-authority'
 import $Image, { ImageProps } from 'next/image'
 import { useState } from 'react'

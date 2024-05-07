@@ -1,4 +1,4 @@
 {
   "root": true,
-  "extends": ["next/core-web-vitals", "@repo/eslint-config/next.json"]
+  "extends": ["next/core-web-vitals", "@pkg/eslint-config/next.json"]
 }

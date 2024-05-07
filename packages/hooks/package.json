@@ -1,10 +1,10 @@
 {
-  "name": "@repo/hooks",
+  "name": "@pkg/hooks",
   "version": "0.0.1",
   "dependencies": {
-    "@repo/states": "*",
-    "@repo/utils": "*",
-    "@tanstack/react-query": "^4.33.0",
+    "@pkg/states": "*",
+    "@pkg/utils": "*",
+    "@tanstack/react-query": "^5.35.1",
     "next": "^14.1.0",
     "react": "^18.2.0",
     "recoil": "^0.7.7"

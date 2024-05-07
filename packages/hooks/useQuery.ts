@@ -1,5 +1,5 @@
-import { tokenState } from '@repo/states'
-import request, { Request, Response, ResponseError } from '@repo/utils/request'
+import { tokenState } from '@pkg/states'
+import request, { Request, Response, ResponseError } from '@pkg/utils/request'
 import { UseMutationOptions, UseQueryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useCallback } from 'react'
 import { useRecoilState } from 'recoil'
@@ -37,11 +37,11 @@ export function useFetch<TData extends any, TIncludeCode extends boolean = false
   const client = useClient()
   const { key, includeStatusCode = false, ...config } = { ...$config }
 
-  return useQuery(
-    key ? [key, config.query] : [url, Object.values(config.payload || {})],
-    () => client(url, config).then(res => (includeStatusCode ? res : res.data)),
-    options,
-  )
+  return useQuery({
+    queryKey: key ? [key, config.query] : [url, Object.values(config.payload || {})],
+    queryFn: () => client(url, config).then(res => (includeStatusCode ? res : res.data)),
+    ...options,
+  })
 }
 
 export function useMutate<TData extends any>(options?: MutateOptions<TData>) {

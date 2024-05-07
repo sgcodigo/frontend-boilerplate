@@ -1,8 +1,10 @@
 {
-  "extends": "@repo/typescript-config/base.json",
+  "extends": "@pkg/typescript-config/base.json",
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "module": "Preserve",
+    "moduleResolution": "Bundler"
   }
 }

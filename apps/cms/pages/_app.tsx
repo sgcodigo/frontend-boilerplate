@@ -1,4 +1,4 @@
-import Provider from '@repo/components/Provider'
+import Provider from '@pkg/components/Provider'
 import AppRoot from 'layouts/AppRoot'
 import type { AppProps } from 'next/app'
 import localFont from 'next/font/local'

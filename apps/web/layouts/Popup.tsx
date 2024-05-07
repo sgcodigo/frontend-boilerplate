@@ -1,6 +1,6 @@
+import { popupsState } from '@pkg/states/layout'
+import { hidePopup } from '@pkg/utils/layout'
 import * as Dialog from '@radix-ui/react-dialog'
-import { popupsState } from '@repo/states/layout'
-import { hidePopup } from '@repo/utils/layout'
 import ScrollArea from 'components/ScrollArea'
 import { CloseIcon } from 'icons'
 import { useRecoilValue } from 'recoil'

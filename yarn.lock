@@ -662,6 +662,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@marsidev/react-turnstile@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@marsidev/react-turnstile@npm:0.6.0"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 10c0/02a206471a11432e19ecd6ddebf41b65df201082491a1f7e454e365c5cfb51a95ceaa95edf562f488dc645076b2c1d2517cb3f9cf904e6ede779035a5cfdd7ee
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:14.1.0":
   version: 14.1.0
   resolution: "@next/env@npm:14.1.0"
@@ -796,6 +806,75 @@ __metadata:
   checksum: 10c0/162b4a0b8705cd6f5c2470b851d1dc6cd228c86d2170e1769d738c1fbb69a87160901411c3c035331e9e99db72f1f1099a8b734bf1637cc32b9a5be1660e4e1e
   languageName: node
   linkType: hard
+
+"@pkg/components@npm:*, @pkg/components@workspace:packages/components":
+  version: 0.0.0-use.local
+  resolution: "@pkg/components@workspace:packages/components"
+  dependencies:
+    "@hookform/resolvers": "npm:^3.3.4"
+    "@marsidev/react-turnstile": "npm:^0.6.0"
+    "@pkg/hooks": "npm:*"
+    "@pkg/typescript-config": "npm:*"
+    "@pkg/utils": "npm:*"
+    "@radix-ui/react-aspect-ratio": "npm:^1.0.3"
+    "@tanstack/react-query": "npm:^5.35.1"
+    "@types/react": "npm:^18.2.46"
+    hls.js: "npm:^1.5.6"
+    nextjs-progressbar: "npm:^0.0.16"
+    react: "npm:^18.2.0"
+    react-hook-form: "npm:^7.50.1"
+    recoil: "npm:^0.7.7"
+    typescript: "npm:^5.4.5"
+    yup: "npm:^1.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@pkg/eslint-config@npm:*, @pkg/eslint-config@workspace:packages/eslint-config":
+  version: 0.0.0-use.local
+  resolution: "@pkg/eslint-config@workspace:packages/eslint-config"
+  languageName: unknown
+  linkType: soft
+
+"@pkg/hooks@npm:*, @pkg/hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@pkg/hooks@workspace:packages/hooks"
+  dependencies:
+    "@pkg/states": "npm:*"
+    "@pkg/utils": "npm:*"
+    "@tanstack/react-query": "npm:^5.35.1"
+    "@types/react": "npm:^18.2.46"
+    next: "npm:^14.1.0"
+    react: "npm:^18.2.0"
+    recoil: "npm:^0.7.7"
+  languageName: unknown
+  linkType: soft
+
+"@pkg/states@npm:*, @pkg/states@workspace:packages/states":
+  version: 0.0.0-use.local
+  resolution: "@pkg/states@workspace:packages/states"
+  dependencies:
+    recoil: "npm:^0.7.7"
+    recoil-persist: "npm:^5.1.0"
+  languageName: unknown
+  linkType: soft
+
+"@pkg/typescript-config@npm:*, @pkg/typescript-config@workspace:packages/typescript-config":
+  version: 0.0.0-use.local
+  resolution: "@pkg/typescript-config@workspace:packages/typescript-config"
+  languageName: unknown
+  linkType: soft
+
+"@pkg/utils@npm:*, @pkg/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@pkg/utils@workspace:packages/utils"
+  dependencies:
+    "@pkg/states": "npm:*"
+    "@types/qs": "npm:^6"
+    axios: "npm:^1.6.8"
+    qs: "npm:^6.11.2"
+    recoil: "npm:^0.7.7"
+  languageName: unknown
+  linkType: soft
 
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
@@ -1582,74 +1661,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@repo/components@npm:*, @repo/components@workspace:packages/components":
-  version: 0.0.0-use.local
-  resolution: "@repo/components@workspace:packages/components"
-  dependencies:
-    "@hookform/resolvers": "npm:^3.3.4"
-    "@radix-ui/react-aspect-ratio": "npm:^1.0.3"
-    "@repo/hooks": "npm:*"
-    "@repo/typescript-config": "npm:*"
-    "@repo/utils": "npm:*"
-    "@tanstack/react-query": "npm:^4.33.0"
-    "@types/react": "npm:^18.2.46"
-    hls.js: "npm:^1.5.6"
-    nextjs-progressbar: "npm:^0.0.16"
-    react: "npm:^18.2.0"
-    react-hook-form: "npm:^7.50.1"
-    recoil: "npm:^0.7.7"
-    typescript: "npm:^5.3.3"
-    yup: "npm:^1.3.3"
-  languageName: unknown
-  linkType: soft
-
-"@repo/eslint-config@npm:*, @repo/eslint-config@workspace:packages/eslint-config":
-  version: 0.0.0-use.local
-  resolution: "@repo/eslint-config@workspace:packages/eslint-config"
-  languageName: unknown
-  linkType: soft
-
-"@repo/hooks@npm:*, @repo/hooks@workspace:packages/hooks":
-  version: 0.0.0-use.local
-  resolution: "@repo/hooks@workspace:packages/hooks"
-  dependencies:
-    "@repo/states": "npm:*"
-    "@repo/utils": "npm:*"
-    "@tanstack/react-query": "npm:^4.33.0"
-    "@types/react": "npm:^18.2.46"
-    next: "npm:^14.1.0"
-    react: "npm:^18.2.0"
-    recoil: "npm:^0.7.7"
-  languageName: unknown
-  linkType: soft
-
-"@repo/states@npm:*, @repo/states@workspace:packages/states":
-  version: 0.0.0-use.local
-  resolution: "@repo/states@workspace:packages/states"
-  dependencies:
-    recoil: "npm:^0.7.7"
-    recoil-persist: "npm:^5.1.0"
-  languageName: unknown
-  linkType: soft
-
-"@repo/typescript-config@npm:*, @repo/typescript-config@workspace:packages/typescript-config":
-  version: 0.0.0-use.local
-  resolution: "@repo/typescript-config@workspace:packages/typescript-config"
-  languageName: unknown
-  linkType: soft
-
-"@repo/utils@npm:*, @repo/utils@workspace:packages/utils":
-  version: 0.0.0-use.local
-  resolution: "@repo/utils@workspace:packages/utils"
-  dependencies:
-    "@repo/states": "npm:*"
-    "@types/qs": "npm:^6"
-    axios: "npm:^1.6.7"
-    qs: "npm:^6.11.2"
-    recoil: "npm:^0.7.7"
-  languageName: unknown
-  linkType: soft
-
 "@rgba-image/common@npm:^0.1.0, @rgba-image/common@npm:^0.1.13":
   version: 0.1.13
   resolution: "@rgba-image/common@npm:0.1.13"
@@ -1702,29 +1713,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.36.1":
-  version: 4.36.1
-  resolution: "@tanstack/query-core@npm:4.36.1"
-  checksum: 10c0/f286529dbd4c9cdb237ef0bfa72d785c74b5d0958290e8d85c343043ba7be4bbc6cb771167d8c13ca12bd4f37412a3d8b69331f57daa375b2071fd4752aed66a
+"@tanstack/query-core@npm:5.35.1":
+  version: 5.35.1
+  resolution: "@tanstack/query-core@npm:5.35.1"
+  checksum: 10c0/c991efeb29ec42f9aadf43130dac5e4e9e0651880ef96e0cb5f0dc3224b9b919b34f0e4af53231a7de32582aa7ba801ed6683ed7448e41e7b2a344803f08f3fe
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^4.33.0":
-  version: 4.36.1
-  resolution: "@tanstack/react-query@npm:4.36.1"
+"@tanstack/react-query@npm:^5.35.1":
+  version: 5.35.1
+  resolution: "@tanstack/react-query@npm:5.35.1"
   dependencies:
-    "@tanstack/query-core": "npm:4.36.1"
-    use-sync-external-store: "npm:^1.2.0"
+    "@tanstack/query-core": "npm:5.35.1"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-native: "*"
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: 10c0/15d9c98269d52fbdd49f4eb4b077b5d70346f904ea2ae51fd0400949d731afde658919a1143dd849fb50d4c5b6d0ab072e7b313a098ef316dd1c24089653f626
+    react: ^18.0.0
+  checksum: 10c0/80b3d4e295b05171e34f522c1856bcd561c58963e7661ae2340f3406a3097b7c9896d4f67005876c634ce1d808791498a987b200f00341e6df9fcc862060e6ad
   languageName: node
   linkType: hard
 
@@ -2214,14 +2217,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.6.7":
-  version: 1.6.7
-  resolution: "axios@npm:1.6.7"
+"axios@npm:^1.6.8":
+  version: 1.6.8
+  resolution: "axios@npm:1.6.8"
   dependencies:
-    follow-redirects: "npm:^1.15.4"
+    follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/131bf8e62eee48ca4bd84e6101f211961bf6a21a33b95e5dfb3983d5a2fe50d9fffde0b57668d7ce6f65063d3dc10f2212cbcb554f75cfca99da1c73b210358d
+  checksum: 10c0/0f22da6f490335479a89878bc7d5a1419484fbb437b564a80c34888fc36759ae4f56ea28d55a191695e5ed327f0bad56e7ff60fb6770c14d1be6501505d47ab9
   languageName: node
   linkType: hard
 
@@ -2473,12 +2476,12 @@ __metadata:
     "@mantine/hooks": "npm:^7.5.3"
     "@marsidev/react-turnstile": "npm:^0.5.3"
     "@next/eslint-plugin-next": "npm:^14.0.4"
-    "@repo/components": "npm:*"
-    "@repo/eslint-config": "npm:*"
-    "@repo/hooks": "npm:*"
-    "@repo/states": "npm:*"
-    "@repo/typescript-config": "npm:*"
-    "@repo/utils": "npm:*"
+    "@pkg/components": "npm:*"
+    "@pkg/eslint-config": "npm:*"
+    "@pkg/hooks": "npm:*"
+    "@pkg/states": "npm:*"
+    "@pkg/typescript-config": "npm:*"
+    "@pkg/utils": "npm:*"
     "@total-typescript/ts-reset": "npm:^0.4.2"
     "@types/node": "npm:^20.10.6"
     "@types/react": "npm:^18.2.46"
@@ -2498,7 +2501,7 @@ __metadata:
     recoil: "npm:^0.7.7"
     renex: "npm:^0.5.1"
     tailwindcss: "npm:^3.4.1"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -3377,13 +3380,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.4":
-  version: 1.15.5
-  resolution: "follow-redirects@npm:1.15.5"
+"follow-redirects@npm:^1.15.6":
+  version: 1.15.6
+  resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
     debug:
       optional: true
-  checksum: 10c0/418d71688ceaf109dfd6f85f747a0c75de30afe43a294caa211def77f02ef19865b547dfb73fde82b751e1cc507c06c754120b848fe5a7400b0a669766df7615
+  checksum: 10c0/9ff767f0d7be6aa6870c82ac79cf0368cd73e01bbc00e9eb1c2a16fbb198ec105e3c9b6628bb98e9f3ac66fe29a957b9645bcb9a490bb7aa0d35f908b6b85071
   languageName: node
   linkType: hard
 
@@ -3449,8 +3452,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend-boilerplate@workspace:."
   dependencies:
-    "@repo/eslint-config": "npm:*"
-    "@repo/typescript-config": "npm:*"
+    "@pkg/eslint-config": "npm:*"
+    "@pkg/typescript-config": "npm:*"
     husky: "npm:^9.0.11"
     prettier: "npm:^3.2.5"
     prettier-plugin-tailwindcss: "npm:^0.5.11"
@@ -6408,23 +6411,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3":
-  version: 5.3.3
-  resolution: "typescript@npm:5.3.3"
+"typescript@npm:^5.4.5":
+  version: 5.4.5
+  resolution: "typescript@npm:5.4.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/e33cef99d82573624fc0f854a2980322714986bc35b9cb4d1ce736ed182aeab78e2cb32b385efa493b2a976ef52c53e20d6c6918312353a91850e2b76f1ea44f
+  checksum: 10c0/2954022ada340fd3d6a9e2b8e534f65d57c92d5f3989a263754a78aba549f7e6529acc1921913560a4b816c46dce7df4a4d29f9f11a3dc0d4213bb76d043251e
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
-  version: 5.3.3
-  resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
+"typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>":
+  version: 5.4.5
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=d69c25"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/1d0a5f4ce496c42caa9a30e659c467c5686eae15d54b027ee7866744952547f1be1262f2d40de911618c242b510029d51d43ff605dba8fb740ec85ca2d3f9500
+  checksum: 10c0/9cf4c053893bcf327d101b6c024a55baf05430dc30263f9adb1bf354aeffc11306fe1f23ba2f9a0209674359f16219b5b7d229e923477b94831d07d5a33a4217
   languageName: node
   linkType: hard
 
@@ -6531,15 +6534,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
-  languageName: node
-  linkType: hard
-
 "util-deprecate@npm:^1.0.2":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -6570,8 +6564,13 @@ __metadata:
   dependencies:
     "@dotlottie/player-component": "npm:^2.7.10"
     "@mantine/hooks": "npm:^7.5.3"
-    "@marsidev/react-turnstile": "npm:^0.5.3"
     "@next/eslint-plugin-next": "npm:^14.0.4"
+    "@pkg/components": "npm:*"
+    "@pkg/eslint-config": "npm:*"
+    "@pkg/hooks": "npm:*"
+    "@pkg/states": "npm:*"
+    "@pkg/typescript-config": "npm:*"
+    "@pkg/utils": "npm:*"
     "@radix-ui/react-accordion": "npm:^1.1.2"
     "@radix-ui/react-dialog": "npm:^1.0.5"
     "@radix-ui/react-dropdown-menu": "npm:^2.0.6"
@@ -6579,12 +6578,6 @@ __metadata:
     "@radix-ui/react-scroll-area": "npm:^1.0.5"
     "@radix-ui/react-select": "npm:^2.0.0"
     "@radix-ui/react-toggle-group": "npm:^1.0.4"
-    "@repo/components": "npm:*"
-    "@repo/eslint-config": "npm:*"
-    "@repo/hooks": "npm:*"
-    "@repo/states": "npm:*"
-    "@repo/typescript-config": "npm:*"
-    "@repo/utils": "npm:*"
     "@total-typescript/ts-reset": "npm:^0.4.2"
     "@types/node": "npm:^20.10.6"
     "@types/react": "npm:^18.2.46"
@@ -6609,7 +6602,7 @@ __metadata:
     renex: "npm:^0.5.1"
     tailwindcss: "npm:^3.4.1"
     tailwindcss-radix: "npm:^2.8.0"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5.4.5"
   languageName: unknown
   linkType: soft
 

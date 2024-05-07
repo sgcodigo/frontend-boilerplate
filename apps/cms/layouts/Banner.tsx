@@ -1,5 +1,5 @@
 import { useElementSize } from '@mantine/hooks'
-import { bannersState, popupsState } from '@repo/states/layout'
+import { bannersState, popupsState } from '@pkg/states/layout'
 import { cva } from 'class-variance-authority'
 import { useEffect } from 'react'
 

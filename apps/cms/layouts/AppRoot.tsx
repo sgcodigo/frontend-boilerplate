@@ -1,4 +1,4 @@
-import useAppRoot from '@repo/hooks/useAppRoot'
+import useAppRoot from '@pkg/hooks/useAppRoot'
 import { Fragment, ReactNode } from 'react'
 import Banner from './Banner'
 import Footer from './Footer'

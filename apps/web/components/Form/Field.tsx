@@ -1,7 +1,7 @@
-import useField, { UseFieldReturn } from '@repo/hooks/useField'
+import useField, { UseFieldReturn } from '@pkg/hooks/useField'
+import Error from '@web/components/Form/Error'
 import { cva, VariantProps } from 'class-variance-authority'
 import { HTMLAttributes, ReactNode } from 'react'
-import Error from './Error'
 
 type Props<T = string> = Omit<HTMLAttributes<HTMLDivElement>, 'prefix' | 'children' | 'onChange'> &
   VariantProps<typeof classes> & {
