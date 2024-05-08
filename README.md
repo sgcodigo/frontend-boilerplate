@@ -106,7 +106,7 @@ import useProfile from '@cms/hooks/useProfile'
 - When including lottie animations, always ask for dotLottie(light in size) files first. Then use the `@web/components/Lottie`.
 - There should be only two typography per project, one is `title-*` and `body-*`. If there is more than two typography please ask design team to remove those and extend it as a variant into `title-*` & `body-*` or attach it to the Figma component instance.
 
-### CMS
+#### CMS
 
 - The design frame should be `375px` for mobile and `1024px` for desktop.
 
