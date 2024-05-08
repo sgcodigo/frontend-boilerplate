@@ -96,15 +96,19 @@ import useProfile from '@cms/hooks/useProfile'
 ### With Design Team
 
 - Ask the design team to provide the assets like favicon and `og:image`.
-- The design frame should be `375px` for mobile and `1024px` for desktop.
 - Don't allow unnamed colors unless it's a brand color of other services.
 - Please ask the designer for `Button`'s `hover`, `active`, `loading` and `disable` state designs.
 - Ask the design team to organize all of their icons, components, typographies and colors in a single place and always update as project grows.
 
 #### Web
 
+- The design frame should be `375px` for mobile and `1280px` for desktop.
 - When including lottie animations, always ask for dotLottie(light in size) files first. Then use the `@web/components/Lottie`.
 - There should be only two typography per project, one is `title-*` and `body-*`. If there is more than two typography please ask design team to remove those and extend it as a variant into `title-*` & `body-*` or attach it to the Figma component instance.
+
+### CMS
+
+- The design frame should be `375px` for mobile and `1024px` for desktop.
 
 ### With Client Team
 
