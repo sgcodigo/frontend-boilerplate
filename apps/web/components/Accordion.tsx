@@ -1,12 +1,11 @@
 import HTML from '@pkg/components/HTML'
-import * as $Accordion from '@radix-ui/react-accordion'
+import * as RadixAccordion from '@radix-ui/react-accordion'
 import { cva, VariantProps } from 'class-variance-authority'
-import { PlusIcon } from 'icons/Math'
 import { ReactNode } from 'react'
 
 type Props = VariantProps<typeof listClass> &
-  Omit<$Accordion.AccordionSingleProps, 'type' | 'className'> & {
-    items: { title: string; content?: string; children?: ReactNode }[]
+  Omit<RadixAccordion.AccordionSingleProps, 'type' | 'className'> & {
+    items: { title: string; content: ReactNode }[]
     classes?: {
       list?: string
       item?: string
@@ -18,7 +17,7 @@ type Props = VariantProps<typeof listClass> &
 const listClass = cva('overflow-hidden', {
   variants: {
     color: {
-      primary: '',
+      default: '',
     },
   },
 })
@@ -26,7 +25,7 @@ const listClass = cva('overflow-hidden', {
 const itemClass = cva('group duration-150', {
   variants: {
     color: {
-      primary: '',
+      default: '',
     },
   },
 })
@@ -34,36 +33,33 @@ const itemClass = cva('group duration-150', {
 const triggerClass = cva('flex w-full items-center justify-between', {
   variants: {
     color: {
-      primary: '',
+      default: '',
     },
   },
 })
 
-const contentClass = cva('!transition-[grid-template-rows] !duration-300 grid !grid-rows-[0fr] rdx-state-open:!grid-rows-[1fr]', {
+const contentClass = cva('overflow-hidden !transition-[grid-template-rows] !duration-300 grid !grid-rows-[0fr] rdx-state-open:!grid-rows-[1fr]', {
   variants: {
     color: {
-      primary: '',
+      default: '',
     },
   },
 })
 
-export default function Accordion({ items, color = 'primary', classes, ...rest }: Props) {
+export default function Accordion({ items, color = 'default', classes, ...rest }: Props) {
   return (
-    <$Accordion.Root type='single' className={listClass({ color, className: classes?.list })} collapsible {...rest}>
+    <RadixAccordion.Root type='single' className={listClass({ color, className: classes?.list })} collapsible {...rest}>
       {items.map(({ title, content, children }) => (
-        <$Accordion.Item key={title} value={title} className={itemClass({ color, className: classes?.item })}>
-          <$Accordion.Trigger className={triggerClass({ color, className: classes?.trigger })}>
+        <RadixAccordion.Item key={title} value={title} className={itemClass({ color, className: classes?.item })}>
+          <RadixAccordion.Trigger className={triggerClass({ color, className: classes?.trigger })}>
             <p>{title}</p>
-            <PlusIcon className='group-rdx-state-open:2nd:[&>path]:opacity-0 flex-shrink-0 duration-200' />
-          </$Accordion.Trigger>
-          <$Accordion.Content forceMount className={contentClass({ color, className: classes?.content })}>
-            <div className='overflow-hidden'>
-              {children}
-              <HTML className='pt-2'>{content}</HTML>
-            </div>
-          </$Accordion.Content>
-        </$Accordion.Item>
+            {/* Replace with project based indicator icon */}
+          </RadixAccordion.Trigger>
+          <RadixAccordion.Content forceMount className={contentClass({ color, className: classes?.content })}>
+             {content}
+          </RadixAccordion.Content>
+        </RadixAccordion.Item>
       ))}
-    </$Accordion.Root>
+    </RadixAccordion.Root>
   )
 }
