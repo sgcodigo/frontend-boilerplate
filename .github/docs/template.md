@@ -2,6 +2,10 @@
 
 A short description about what this component/function does.
 
+## Usage
+```
+```
+
 ## Props
 
 | Name | Type | Default | Description 
