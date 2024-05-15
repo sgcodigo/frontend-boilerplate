@@ -8,24 +8,16 @@ type CProps = VariantProps<typeof classes> & { $ref?: any; icon?: ReactNode; lab
 export type LinkProps = CProps & $LinkProps & HTMLAttributes<HTMLAnchorElement>
 export type ButtonProps = CProps & { href?: undefined } & ButtonHTMLAttributes<HTMLButtonElement>
 
-const classes = cva('relative flex-center leading-none', {
+const classes = cva('relative flex-center leading-none cursor-pointer', {
   variants: {
     size: { sm: '', md: '' },
     width: {
-      fill: 'flex w-full',
+      fill: 'flex w-full h-full',
       inline: 'inline-flex flex-shrink-0',
       hybrid: 'max-md:flex max-md:w-full inline-flex flex-shrink-0',
     },
-    state: {
-      idle: 'cursor-pointer',
-      error: 'cursor-not-allowed',
-      loading: 'cursor-progress',
-      disable: 'cursor-not-allowed',
-      success: '',
-    },
     color: {
-      primary: '',
-      secondary: '',
+      primary: 'bg-rose-500',
     },
     variant: {
       text: '',
@@ -41,13 +33,11 @@ export default function Button({
   href,
   icon,
   color = 'primary',
-  state = 'idle',
   label,
   width = 'fill',
   variant = 'contain',
   children,
   className,
-
   ...rest
 }: LinkProps | ButtonProps) {
   const props = {
@@ -55,15 +45,19 @@ export default function Button({
     ref: $ref,
     children: children || (
       <>
-        <Spinner size='sm' color='currentColor' className={`absolute m-0 ${state !== 'loading' && 'opacity-0'}`} />
-        <p className={`flex items-center space-x-2 ${state === 'loading' && 'opacity-0'}`}>
+        <Spinner size='sm' color='currentColor' className='absolute m-0 opacity-0' />
+        <p className='flex items-center space-x-2'>
           {icon}
           {label && <span>{label}</span>}
         </p>
       </>
     ),
-    className: classes({ size, width, state, color, variant, className }),
+    className: `error:cursor-not-allowed loading:cursor-progress disable:cursor-not-allowed [&>svg]:loading:opacity-100 [&>p]:loading:opacity-0 ${classes({ size, width, color, variant, className })}`,
   }
 
-  return href ? <Link {...({ href, ...props } as LinkProps)} /> : <button type='button' disabled={state !== 'idle'} {...(props as ButtonProps)} />
+  return href ? (
+    <Link {...({ href, ...props } as LinkProps)} />
+  ) : (
+    <button type='button' disabled={![undefined, 'idle'].includes((rest as any)['data-state'])} {...(props as ButtonProps)} />
+  )
 }

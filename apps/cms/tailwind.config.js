@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 const childs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const states = ['idle', 'error', 'loading', 'disable', 'success']
 
 const zIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
@@ -40,6 +42,7 @@ module.exports = {
         const variant = `${child}${child === 1 ? 'st' : child === 2 ? 'nd' : child === 3 ? 'rd' : 'th'}`
         addVariant(variant, `&:nth-child(${child})`)
       })
+      states.forEach(st => addVariant(st, `&[data-state=${st}]`))
 
       /* Utilities */
       addUtilities({ '.flex-center': { 'align-items': 'center', 'justify-content': 'center' } })
