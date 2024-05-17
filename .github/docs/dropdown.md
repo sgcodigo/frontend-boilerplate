@@ -1,26 +1,26 @@
-# `$component/Dropdown`
-
-A Dropdown is a menu that offers a list of options. It's useful because a dropdown allows us to select an option easily or it's useful when the user want to navigate to another page.
+# [`Dropdown`](../../apps/web/components/Dropdown.tsx)
 
 ## Usage
 
-```typescript
-let options:Options[] = [...data];
+```tsx
+import Dropdown from '@web/components/Dropdown'
 
-const [value,setValue] = useState<string>('');
+const options = [
+  { label: 'Item 1', value: 'Item1' },
+  { label: 'Item 2', value: 'Item2' },
+  { label: 'Item 3', value: 'Item3' },
+];
 
-const onChange = (value:string) => {
- // code here
-}
 
-<Dropdown options={options} value={value} onChange={onChange} className={''}>
+<Dropdown options={options} onValueChange={/* Handle Value Change*/}>
 ```
 
 ## Props
 
-| Name          | Type                       | Default | Description                                                   |
-| :------------ | :------------------------- | :------ | :------------------------------------------------------------ |
-| `value`     | `string`                 |         | current value of Dropdown                                     |
-| `options`   | `Options[]`              |         | Item lists of Dropdown                                        |
-| `onChange`  | `(value:string) => void` |         | will be executed when the user modified the Dropdown's value. |
-| `className` | `string`                 |         | custom tailwindcss classes                                    |
+| Name            | Type                                                                           | Default      | Description                                    |
+| :-------------- | :----------------------------------------------------------------------------- | :----------- | :--------------------------------------------- |
+| `value`         | `string`                                                                       | `options[0]` | Selected value                                 |
+| `options`       | [`Option[]`](../../apps/web/types/globals.d.ts#L7)                             |              | List of dropdown options                       |
+| `onValueChange` | `(value:string) => void`                                                       |              | Handler to execute when dropdown value changes |
+| `className`     | `string`                                                                       |              | Classes to pass down to `Select.Trigger`       |
+| `...$rest`      | [SelectProps](https://www.radix-ui.com/primitives/docs/components/select#root) |              | Props to pass down to `Select.Root`            |

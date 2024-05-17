@@ -1,31 +1,29 @@
 import { cookOptions } from '@pkg/utils'
 import * as Select from '@radix-ui/react-select'
 
-type Props = {
+type Props = Select.SelectProps & {
   value: string
   options: Option[]
-  onChange: (value: string) => void
   className?: string
+  onValueChange: (value: string) => void
 }
-export default function Dropdown({ value, options, className, onChange }: Props) {
-  const root = globalThis.document?.getElementById('app-root')
+
+export default function Dropdown({ value, options, className, onValueChange, ...rest }: Props) {
   const $options = cookOptions(options)
-  const activeOption = $options.find(option => option.value === value)
+  const { label } = $options.find(option => option.value === value) || $options[0]
 
   return (
-    <Select.Root value={value} onValueChange={onChange}>
+    <Select.Root {...rest} value={value} onValueChange={onValueChange}>
       <Select.Trigger className={`group inline-flex items-center ${className}`}>
-        <span>{activeOption?.label}</span>
+        <span>{label}</span>
       </Select.Trigger>
-      <Select.Portal container={root}>
-        <Select.Content align='start' position='popper' className='animate-in animate-duration-150 z-10'>
-          {$options.map(({ label, value }) => (
-            <Select.Item key={value} value={value} className='cursor-pointer duration-150'>
-              {label}
-            </Select.Item>
-          ))}
-        </Select.Content>
-      </Select.Portal>
+      <Select.Content align='start' position='popper' className='animate-in animate-duration-150 z-10'>
+        {$options.map(({ label, value }) => (
+          <Select.Item key={value} value={value} className='cursor-pointer duration-150'>
+            {label}
+          </Select.Item>
+        ))}
+      </Select.Content>
     </Select.Root>
   )
 }
