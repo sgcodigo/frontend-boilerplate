@@ -60,6 +60,7 @@ const { data, error, isPending, ...UseQueryResult } = useFetch('/api/config')
 
   <br/> <br/>
 
+
 # [`useMutate`](../../packages/hooks/useQuery.ts#L47)
 
 Hook to send "POST" request to the backend
@@ -80,6 +81,33 @@ const handleSubmit = () => {
     },
   })
 }
+```
+
+To use the ```PUT``` or ```DELETE``` method, simply change the method from 'POST' to 'PUT' or 'DELETE' in the mutate function.
+
+And here's how it looks in the full context:
+
+Hook for Sending "PUT" Requests to the Backend
+
+## Usage
+
+```js
+
+const { mutate, ...useMutationResult } = useMutate();
+
+const handleSubmit = () => {
+    const data = {
+        name: "Testing",
+    };
+    mutate({ 
+        url: "/api/submit", 
+        method: 'PUT', // can be DELETE method
+        payload: {
+            ...data
+        }
+    });
+};
+
 ```
 
 ## Props
