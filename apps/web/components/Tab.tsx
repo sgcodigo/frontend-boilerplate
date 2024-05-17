@@ -2,67 +2,54 @@ import { cookOptions } from '@pkg/utils'
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { VariantProps, cva } from 'class-variance-authority'
 import { useRouter } from 'next/router'
-import { Fragment, HTMLAttributes, ReactNode, useState } from 'react'
-import Dropdown from './Dropdown'
+import { Fragment, ReactNode, useState } from 'react'
 import ScrollArea from './ScrollArea'
 
-type Props = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
-  VariantProps<typeof item> & {
-    name?: string
-    options: Option[]
-    panels?: ReactNode[]
-    shallow?: boolean
-    $default?: string
-    children?: (value: string) => ReactNode
-    syncRoute?: boolean
-    responsive?: boolean
-    removeQueriesOnChange?: string[]
-  }
+type Props = VariantProps<typeof item> & {
+  options: Option[]
+  children: ReactNode[] | ((value: string) => ReactNode)
+  $default?: string
+  name?: string
+  shallow?: boolean
+  syncRoute?: boolean
+  removeQueriesOnChange?: string[]
+}
 
 const list = cva('', {
   variants: {
-    color: {
-      primary: '',
+    variant: {
+      default: '',
     },
-    variant: {},
   },
 })
 
-const item = cva('flex-shrink-0 duration-150', {
+const item = cva('', {
   variants: {
-    color: {
-      primary: '',
+    variant: {
+      default: '',
     },
-    variant: {},
   },
 })
 
 export default function Tab({
-  name = 'tab',
-  color = 'primary',
-  panels,
   options,
-  shallow = true,
-  variant,
+  variant = 'default',
   $default,
   children,
-  className,
+  name = 'tab',
+  shallow = true,
   syncRoute = true,
-  responsive = true,
   removeQueriesOnChange = [],
-  ...rest
 }: Props) {
   const router = useRouter()
   const [value, setValue] = useState('')
 
   const $options = cookOptions(options)
-  const { query } = router
-  const queryValue = query[name] as string
-  const $value = (syncRoute ? queryValue : value) || $default || $options[0]?.value || ''
-  const activeIndex = $options.findIndex(option => option.value === $value)
+  const curValue = (syncRoute ? (router.query[name] as string) : value) || $default || $options[0].value
 
   const handleChange = (value: string) => {
     if (syncRoute) {
+      const { query } = router
       removeQueriesOnChange.forEach(element => delete query[element])
       router.push({ query: { ...query, ...(value ? { [name]: value } : undefined) } }, undefined, { shallow })
     } else {
@@ -72,20 +59,16 @@ export default function Tab({
 
   return (
     <Fragment>
-      <div {...rest} className={`group font-serif [&_*]:uppercase ${className}`}>
-        <ScrollArea dir='horizontal' className={`-mx-5 ${responsive && 'max-lg:hidden'}`}>
-          <RadioGroup.Root value={$value} className={list({ variant })} onValueChange={handleChange}>
-            {$options.map(({ label, value }) => (
-              <RadioGroup.Item key={value} value={value} className={item({ color, variant })}>
-                {label}
-              </RadioGroup.Item>
-            ))}
-          </RadioGroup.Root>
-        </ScrollArea>
-        <Dropdown value={$value} options={$options} onChange={handleChange} className={`text-base lg:hidden ${!responsive && 'hidden'}`} />
-      </div>
-      {children && children($value)}
-      {panels && panels[activeIndex]}
+      <ScrollArea dir='horizontal'>
+        <RadioGroup.Root value={curValue} className={list({ variant })} onValueChange={handleChange}>
+          {$options.map(({ label, value }) => (
+            <RadioGroup.Item key={value} value={value} className={item({ variant })}>
+              {label}
+            </RadioGroup.Item>
+          ))}
+        </RadioGroup.Root>
+      </ScrollArea>
+      {typeof children === 'function' ? children(curValue) : children[$options.findIndex(option => option.value === curValue)]}
     </Fragment>
   )
 }
