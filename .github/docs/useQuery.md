@@ -100,7 +100,7 @@ const handleSubmit = () => {
         name: "Testing",
     };
     mutate({ 
-        url: "/api/submit", 
+        url: "/api/items/id", 
         method: 'PUT', // can be DELETE method
         payload: {
             ...data
