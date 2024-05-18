@@ -1,4 +1,3 @@
-import HTML from '@pkg/components/HTML'
 import * as RadixAccordion from '@radix-ui/react-accordion'
 import { cva, VariantProps } from 'class-variance-authority'
 import { ReactNode } from 'react'
@@ -49,14 +48,14 @@ const contentClass = cva('overflow-hidden !transition-[grid-template-rows] !dura
 export default function Accordion({ items, color = 'default', classes, ...rest }: Props) {
   return (
     <RadixAccordion.Root type='single' className={listClass({ color, className: classes?.list })} collapsible {...rest}>
-      {items.map(({ title, content, children }) => (
+      {items.map(({ title, content }) => (
         <RadixAccordion.Item key={title} value={title} className={itemClass({ color, className: classes?.item })}>
           <RadixAccordion.Trigger className={triggerClass({ color, className: classes?.trigger })}>
             <p>{title}</p>
             {/* Replace with project based indicator icon */}
           </RadixAccordion.Trigger>
           <RadixAccordion.Content forceMount className={contentClass({ color, className: classes?.content })}>
-             {content}
+            {content}
           </RadixAccordion.Content>
         </RadixAccordion.Item>
       ))}
