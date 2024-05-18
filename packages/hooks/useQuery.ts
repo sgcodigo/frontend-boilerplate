@@ -8,7 +8,7 @@ type MutateOptions<TData> = UseMutationOptions<Response<TData>, ResponseError, R
   invalidateUrls?: string[]
 }
 
-function useClient() {
+export function useClient() {
   const [token, setToken] = useRecoilState(tokenState)
 
   return useCallback(

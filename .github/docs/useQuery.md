@@ -1,80 +1,123 @@
-# `$hooks/useQuery/useClient`
+# [`useClient`](../../packages/hooks/useQuery.ts#L11)
 
-Hook to use axios client directly with token in the axios header. 
+Hook to use axios client directly with token in the axios header.
 
 ## Usage
+
 ```js
-const client = useClient(); 
+import { useClient } from "@pkg/hooks/useQuery";
+
+const client = useClient()
+
+client('/api/config')
+ .then(() => /* Handle Success */)
+ .catch(() => /* Handle Reject */)
 ```
 
 ## Props
 
-| Name | Type | Default | Description 
-| :--- | :--- | :------ | :----------
-|  |  |  | 
+| Name | Type | Default | Description |
+| :--- | :--- | :------ | :---------- |
+|      |      |         |
 
 ## Return
+
 a function to do the [request](../../packages/utils/request.ts)
 
 ## Notes
-- Suggest to use `useClient` over `request` as it handle token authentication. 
-- It will attach token from global state and attach automactically to `request` and remove the token if the status code return 401. 
+
+- In client-side, suggest to use `useClient` over `request` as it handle token authentication.
+- It will attach token from global state and attach automactically to `request` and remove the token if the status code return 401.
 - Configure `NEXT_PUBLIC_BASIC_AUTH_TOKEN` and `NEXT_PUBLIC_API_ENDPOINT` in the environment before using `useClient`
 
- ---
+  <br/> <br/>
 
-# `$hooks/useQuery/useFetch`
+# [`useFetch`](../../packages/hooks/useQuery.ts#L27)
 
-Hook to send "GET" request to the backend
+Hook to fetch data from backend. Default method is `GET`.
 
 ## Usage
+
 ```js
-const { data, error, isLoading, ...UseQueryResult } = useQuery('/api/config'); 
+import { useFetch } from '@pkg/hooks/useQuery'
+
+const { data, error, isPending, ...UseQueryResult } = useFetch('/api/config')
 ```
 
 ## Props
 
-| Name | Type | Default | Description 
-| :--- | :--- | :------ | :----------
-| url | string | None | relative url to `NEXT_PUBLIC_API_ENDPOINT` or absolute url to get data
-| config? | [AxiosRequestConfig](../../packages/utils/request.ts) + Additional Parameter | None | Config for axios request and key for Tenstack `useQuery` 
-| config?.key | string | URL + payload | key for caching and invalidation
-| config?.includeStatusCode | TIncludeCode | false | setting to get axios response directly with included status code or axios response data only
-| options | UseQueryOptions | None | options for Tenstack `useQuery`
+| Name                      | Type                                                                         | Default       | Description                                                                                  |
+| :------------------------ | :--------------------------------------------------------------------------- | :------------ | :------------------------------------------------------------------------------------------- |
+| url                       | string                                                                       | None          | relative url to `NEXT_PUBLIC_API_ENDPOINT` or absolute url to get data                       |
+| config?                   | [AxiosRequestConfig](../../packages/utils/request.ts) + Additional Parameter | None          | Config for axios request and key for Tenstack `useQuery`                                     |
+| config?.key               | string                                                                       | URL + payload | key for caching and invalidation                                                             |
+| config?.includeStatusCode | boolean                                                                      | false         | setting to get axios response directly with included status code or axios response data only |
+| options                   | [UseQueryOptions](../../packages/hooks/useQuery.ts#L3)                       | None          | options for Tenstack `useQuery`                                                              |
 
 ## Notes
-- if the backend dev don't return the standard xml error status code 500, 400, we will need to extend ResponseError with custom types in order to fulfill the requirement of backend dev.
 
----
+- If the backend dev don't return the standard xml error status code 500, 400, we will need to extend ResponseError with custom types in order to fulfill the requirement of backend dev.
 
-# `$hooks/useQuery/useMutation`
+  <br/> <br/>
+
+
+# [`useMutate`](../../packages/hooks/useQuery.ts#L47)
 
 Hook to send "POST" request to the backend
 
 ## Usage
+
 ```js
-const { mutate, ...UseMutationResult  } = useMutate(); 
+const { mutate, ...UseMutationResult } = useMutate()
+
+const handleSubmit = () => {
+  const data = {
+    name: 'Testing',
+  }
+  mutate({
+    url: '/api/submit',
+    payload: {
+      ...data,
+    },
+  })
+}
+```
+
+To use the ```PUT``` or ```DELETE``` method, simply change the method from 'POST' to 'PUT' or 'DELETE' in the mutate function.
+
+And here's how it looks in the full context:
+
+Hook for Sending "PUT" Requests to the Backend
+
+## Usage
+
+```js
+
+const { mutate, ...useMutationResult } = useMutate();
 
 const handleSubmit = () => {
     const data = {
         name: "Testing",
-    }
+    };
     mutate({ 
-        url: "/api/submit", 
+        url: "/api/items/id", 
+        method: 'PUT', // can be DELETE method
         payload: {
-        ...data
+            ...data
         }
     });
-}
+};
+
 ```
 
 ## Props
-| Name | Type | Default | Description 
-| :--- | :--- | :------ | :----------
-| options | [MutateOptions](../../packages/hooks/useQuery.ts) | None | options to configure Tenstack `useMutation` 
-| options.invalidateUrls | string[] | None | configure invalidation 
+
+| Name                   | Type                                              | Default | Description                                 |
+| :--------------------- | :------------------------------------------------ | :------ | :------------------------------------------ |
+| options                | [MutateOptions](../../packages/hooks/useQuery.ts) | None    | options to configure Tenstack `useMutation` |
+| options.invalidateUrls | string[]                                          | None    | configure invalidation                      |
 
 ## Notes
-- Default method will be `POST` 
-- This function will handle the invalidation for `react-query` also
 
+- Default method will be `POST`
+- This function will handle the invalidation for `react-query` also
