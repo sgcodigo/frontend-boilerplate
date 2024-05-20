@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const childs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
+const states = ['idle', 'error', 'loading', 'disable', 'success']
 const zIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
 module.exports = {
@@ -17,7 +19,6 @@ module.exports = {
   ],
   theme: {
     colors: {
-      primary: '',
       white: '#ffffff',
       black: '#000000',
       inherit: 'inherit',
@@ -37,22 +38,22 @@ module.exports = {
       animation: {
         in: 'enter var(--animate-duration) var(--animate-easing) var(--animate-delay) both',
         out: 'leave var(--animate-duration) var(--animate-easing) var(--animate-delay) both',
-        blink: 'blink 1.25s step-end infinite',
       },
     },
   },
   plugins: [
-    require('tailwindcss-radix')({ variantPrefix: 'rdx' }),
-    ({ theme, addVariant, addUtilities, matchUtilities }) => {
+    require('tailwindcss-radix')(),
+    plugin(function ({ theme, addVariant, addUtilities, matchUtilities }) {
       /* Variants */
       childs.forEach(child => {
         const variant = `${child}${child === 1 ? 'st' : child === 2 ? 'nd' : child === 3 ? 'rd' : 'th'}`
         addVariant(variant, `&:nth-child(${child})`)
       })
 
+      states.forEach(state => addVariant(state, `&[data-state=${state}]`))
+
       /* Utilities */
       addUtilities({ '.flex-center': { 'align-items': 'center', 'justify-content': 'center' } })
-      matchUtilities({ s: value => ({ width: value, height: value }) }, { values: theme('width') })
 
       /* Skeleton */
       matchUtilities({ sw: value => ({ '--skeleton-width': value }) }, { values: theme('width') })
@@ -68,6 +69,6 @@ module.exports = {
       matchUtilities({ 'animate-ease': value => ({ '--animate-easing': value }) }, { values: theme('transitionTimingFunction') })
       matchUtilities({ 'animate-delay': value => ({ '--animate-delay': value }) }, { values: theme('transitionDelay') })
       matchUtilities({ 'animate-duration': value => ({ '--animate-duration': value }) }, { values: theme('transitionDuration') })
-    },
+    }),
   ],
 }
