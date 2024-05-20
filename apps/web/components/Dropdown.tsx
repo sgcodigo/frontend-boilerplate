@@ -6,15 +6,17 @@ type Props = Select.SelectProps & {
   options: Option[]
   className?: string
   onValueChange: (value: string) => void
+  placeholder?: string
 }
 
-export default function Dropdown({ value, options, className, onValueChange, ...rest }: Props) {
+export default function Dropdown({ value, options, placeholder, className, onValueChange, ...rest }: Props) {
   const $options = cookOptions(options)
   const { label } = $options.find(option => option.value === value) || $options[0]
 
   return (
     <Select.Root {...rest} value={value} onValueChange={onValueChange}>
       <Select.Trigger className={`group inline-flex items-center ${className}`}>
+        <Select.Value placeholder={placeholder} />
         <span>{label}</span>
       </Select.Trigger>
       <Select.Content align='start' position='popper' className='animate-in animate-duration-150 z-10'>
