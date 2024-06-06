@@ -858,6 +858,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pkg/tailwindcss@npm:*, @pkg/tailwindcss@workspace:packages/tailwindcss":
+  version: 0.0.0-use.local
+  resolution: "@pkg/tailwindcss@workspace:packages/tailwindcss"
+  languageName: unknown
+  linkType: soft
+
 "@pkg/typescript-config@npm:*, @pkg/typescript-config@workspace:packages/typescript-config":
   version: 0.0.0-use.local
   resolution: "@pkg/typescript-config@workspace:packages/typescript-config"
@@ -6569,6 +6575,7 @@ __metadata:
     "@pkg/eslint-config": "npm:*"
     "@pkg/hooks": "npm:*"
     "@pkg/states": "npm:*"
+    "@pkg/tailwindcss": "npm:*"
     "@pkg/typescript-config": "npm:*"
     "@pkg/utils": "npm:*"
     "@radix-ui/react-accordion": "npm:^1.1.2"

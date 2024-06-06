@@ -14,6 +14,7 @@
     "@pkg/components": "*",
     "@pkg/hooks": "*",
     "@pkg/states": "*",
+    "@pkg/tailwindcss": "*",
     "@pkg/utils": "*",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.5",

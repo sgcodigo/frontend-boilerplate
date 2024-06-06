@@ -1,4 +1,4 @@
-@keyframes enter {
+@keyframes show {
   0% {
     opacity: var(--animate-opacity);
     transform: scale(var(--animate-scale-x), var(--animate-scale-y)) translate(var(--animate-x), var(--animate-y));
@@ -9,7 +9,7 @@
   }
 }
 
-@keyframes leave {
+@keyframes hide {
   0% {
     opacity: var(--animate-opacity);
     transform: scale(var(--tw-scale-x), var(--tw-scale-y)) translate(var(--tw-translate-x), var(--tw-translate-y));
